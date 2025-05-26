@@ -19,11 +19,11 @@ A *lightweight*, *offline-first health data collection and synchronization platf
 ### 🛠️ Tech Stack
 * __Frontend__: React / Next.js / Tailwind CSS
 
-* __Backend__: FastAPI / Node.js / Firebase / Supabase (depending on your choice)
+* __Backend__: Flask / Node.js / 
 
-* __Database__: PostgreSQL / SQLite (offline)
+* __Database__: Mongo DB
 
-* __Data Pipeline__: Pandas, 
+* __Data Pipeline__: Pandas
 
 
 ### 📦 Folder Structure
