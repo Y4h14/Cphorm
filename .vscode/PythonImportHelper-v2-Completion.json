@@ -1,0 +1,163 @@
+[
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
+        "documentation": {}
+    },
+    {
+        "label": "generate_sample",
+        "kind": 2,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "def generate_sample():\n    city = random.choice(list(sudanese_cities.keys()))\n    lat, long = sudanese_cities[city]\n    age = random.randint(1, 90)\n    sex = random.choice(['male', 'female'])\n    diagnosis = random.choice(diagnoses)\n    return {\n        \"ID\": fake.uuid4(),\n        \"full_name\": fake.name(),\n        \"lat\": lat + np.random.normal(0, 0.01),",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "generate_sample",
+        "kind": 2,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "def generate_sample():\n    city = random.choice(list(sudanese_cities.keys()))\n    lat, long = sudanese_cities[city]\n    age = random.randint(1, 90)\n    sex = random.choice(['male', 'female'])\n    diagnosis = random.choice(diagnoses)\n    # Assign malaria_type only if diagnosis is Malaria(CL) or Malaria(VL)\n    if diagnosis == 'Malaria(CL)':\n        malaria_type = 'CL'\n    elif diagnosis == 'Malaria(VL)':",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "fake",
+        "kind": 5,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "fake = Faker()\n\"\"\"\nThis code is responsible for generating the sample data used\n\"\"\"\nsudanese_cities = {\n    \"Khartoum\": (15.5007, 32.5599),\n    \"Port Sudan\": (19.6158, 37.2153),\n    \"Kassala\": (15.4594, 36.4036),\n    \"Nyala\": (12.0489, 24.9042),\n    \"El Obeid\": (13.1833, 30.2167),",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "sudanese_cities",
+        "kind": 5,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "sudanese_cities = {\n    \"Khartoum\": (15.5007, 32.5599),\n    \"Port Sudan\": (19.6158, 37.2153),\n    \"Kassala\": (15.4594, 36.4036),\n    \"Nyala\": (12.0489, 24.9042),\n    \"El Obeid\": (13.1833, 30.2167),\n    \"Dongola\": (19.1667, 30.45),\n    \"Kadugli\": (11.0167, 29.7167),\n    \"Wad Madani\": (14.4, 33.5167),\n    \"Geneina\": (13.45, 22.4333),",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "occupations",
+        "kind": 5,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "occupations = ['Farmer', 'Teacher', 'Engineer', 'Doctor', 'Nurse', 'Trader', 'Student', 'Unemployed']\nmarital_statuses = ['Single', 'Married', 'Divorced', 'Widowed']\ncomplaints = ['Fever and chills', 'Severe diarrhea', 'Persistent cough', 'Skin rash', 'Abdominal pain']\ndiagnoses = ['Cholera', 'Malaria(CL)', 'Malaria(VL)', 'Dengue Fever', 'Measles', 'Leishmaniasis']\ndef generate_sample():\n    city = random.choice(list(sudanese_cities.keys()))\n    lat, long = sudanese_cities[city]\n    age = random.randint(1, 90)\n    sex = random.choice(['male', 'female'])\n    diagnosis = random.choice(diagnoses)",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "marital_statuses",
+        "kind": 5,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "marital_statuses = ['Single', 'Married', 'Divorced', 'Widowed']\ncomplaints = ['Fever and chills', 'Severe diarrhea', 'Persistent cough', 'Skin rash', 'Abdominal pain']\ndiagnoses = ['Cholera', 'Malaria(CL)', 'Malaria(VL)', 'Dengue Fever', 'Measles', 'Leishmaniasis']\ndef generate_sample():\n    city = random.choice(list(sudanese_cities.keys()))\n    lat, long = sudanese_cities[city]\n    age = random.randint(1, 90)\n    sex = random.choice(['male', 'female'])\n    diagnosis = random.choice(diagnoses)\n    return {",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "complaints",
+        "kind": 5,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "complaints = ['Fever and chills', 'Severe diarrhea', 'Persistent cough', 'Skin rash', 'Abdominal pain']\ndiagnoses = ['Cholera', 'Malaria(CL)', 'Malaria(VL)', 'Dengue Fever', 'Measles', 'Leishmaniasis']\ndef generate_sample():\n    city = random.choice(list(sudanese_cities.keys()))\n    lat, long = sudanese_cities[city]\n    age = random.randint(1, 90)\n    sex = random.choice(['male', 'female'])\n    diagnosis = random.choice(diagnoses)\n    return {\n        \"ID\": fake.uuid4(),",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "diagnoses",
+        "kind": 5,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "diagnoses = ['Cholera', 'Malaria(CL)', 'Malaria(VL)', 'Dengue Fever', 'Measles', 'Leishmaniasis']\ndef generate_sample():\n    city = random.choice(list(sudanese_cities.keys()))\n    lat, long = sudanese_cities[city]\n    age = random.randint(1, 90)\n    sex = random.choice(['male', 'female'])\n    diagnosis = random.choice(diagnoses)\n    return {\n        \"ID\": fake.uuid4(),\n        \"full_name\": fake.name(),",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "data = [generate_sample() for _ in range(10000)]\ndf = pd.DataFrame(data)\n# Save to CSV\nfile_path = \"../data/sudan_patient_dataset.csv\"\ndf.to_csv(file_path, index=False)\nfile_path\n# ...existing code...\ndef generate_sample():\n    city = random.choice(list(sudanese_cities.keys()))\n    lat, long = sudanese_cities[city]",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "df = pd.DataFrame(data)\n# Save to CSV\nfile_path = \"../data/sudan_patient_dataset.csv\"\ndf.to_csv(file_path, index=False)\nfile_path\n# ...existing code...\ndef generate_sample():\n    city = random.choice(list(sudanese_cities.keys()))\n    lat, long = sudanese_cities[city]\n    age = random.randint(1, 90)",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "file_path",
+        "kind": 5,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "file_path = \"../data/sudan_patient_dataset.csv\"\ndf.to_csv(file_path, index=False)\nfile_path\n# ...existing code...\ndef generate_sample():\n    city = random.choice(list(sudanese_cities.keys()))\n    lat, long = sudanese_cities[city]\n    age = random.randint(1, 90)\n    sex = random.choice(['male', 'female'])\n    diagnosis = random.choice(diagnoses)",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "data",
+        "kind": 5,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "data = [generate_sample() for _ in range(10000)]\ndf = pd.DataFrame(data)\n# Save to CSV\nfile_path = \"../data/sudan_patient_dataset.csv\"\ndf.to_csv(file_path, index=False)\nfile_path\n# ...existing code...",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "df = pd.DataFrame(data)\n# Save to CSV\nfile_path = \"../data/sudan_patient_dataset.csv\"\ndf.to_csv(file_path, index=False)\nfile_path\n# ...existing code...",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "file_path",
+        "kind": 5,
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "peekOfCode": "file_path = \"../data/sudan_patient_dataset.csv\"\ndf.to_csv(file_path, index=False)\nfile_path\n# ...existing code...",
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    }
+]
