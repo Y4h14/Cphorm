@@ -78,3 +78,54 @@ form.addEventListener('submit', function (e) {
     dynamicFields.innerHTML = '';
   }, 2000);
 });
+
+const customFieldForm = document.getElementById('custom-field-form');
+const customFieldName = document.getElementById('custom-field-name');
+const customFieldType = document.getElementById('custom-field-type');
+const customFieldOptions = document.getElementById('custom-field-options');
+
+// Show options input only if "select" is chosen
+customFieldType.addEventListener('change', () => {
+  if (customFieldType.value === 'select') {
+    customFieldOptions.classList.remove('hidden');
+    customFieldOptions.required = true;
+  } else {
+    customFieldOptions.classList.add('hidden');
+    customFieldOptions.required = false;
+  }
+});
+
+customFieldForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const key = customFieldName.value.trim().toLowerCase().replace(/\s+/g, '_');
+  const label = customFieldName.value.trim();
+  const type = customFieldType.value;
+  let fieldDef = { label, type };
+
+  if (type === 'select') {
+    const options = customFieldOptions.value.split(',').map(opt => opt.trim()).filter(Boolean);
+    if (options.length === 0) {
+      alert('Please provide at least one option for the select field.');
+      return;
+    }
+    fieldDef.options = options;
+  } else if (type === 'text' || type === 'number' || type === 'date') {
+    fieldDef.placeholder = `Enter ${label.toLowerCase()}`;
+  }
+
+  // Add to FIELD_DEFS
+  FIELD_DEFS[key] = fieldDef;
+
+  // Add a new checkbox to selectors
+  const labelElem = document.createElement('label');
+  labelElem.className = "flex gap-x-3 py-3 flex-row";
+  labelElem.innerHTML = `
+    <input type="checkbox" data-key="${key}" class="h-5 w-5 rounded border-[#cedbe8] border-2 bg-transparent text-[#0c7ff2] checked:bg-[#0c7ff2] checked:border-[#0c7ff2] focus:ring-0 focus:ring-offset-0 focus:border-[#cedbe8] focus:outline-none" />
+    <p class="text-[#0d141c] text-base font-normal leading-normal">${label}</p>
+  `;
+  selectorsContainer.appendChild(labelElem);
+
+  // Reset form
+  customFieldForm.reset();
+  customFieldOptions.classList.add('hidden');
+});

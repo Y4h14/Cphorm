@@ -125,6 +125,20 @@
                 </button>
               </div>
             </form>
+            <div class="px-4 py-4 border-b border-[#e7edf4] mb-4">
+              <h4 class="text-[#0d141c] text-base font-bold mb-2">Add Custom Field</h4>
+              <form id="custom-field-form" class="flex flex-wrap gap-2 items-end">
+                <input id="custom-field-name" type="text" placeholder="Field name" class="border border-[#cedbe8] rounded-lg px-3 py-2 text-base" required />
+                <select id="custom-field-type" class="border border-[#cedbe8] rounded-lg px-3 py-2 text-base">
+                  <option value="text">Text</option>
+                  <option value="number">Number</option>
+                  <option value="date">Date</option>
+                  <option value="select">Select (dropdown)</option>
+                </select>
+                <input id="custom-field-options" type="text" placeholder="Options (comma separated)" class="border border-[#cedbe8] rounded-lg px-3 py-2 text-base hidden" />
+                <button type="submit" class="bg-[#2563EB] text-white rounded-lg px-4 py-2 font-semibold transition-all duration-200 hover:bg-[#1d4ed8]">Add Field</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
