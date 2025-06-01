@@ -35,6 +35,23 @@
         "documentation": {}
     },
     {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "generate_sample",
+        "importPath": "platform.analytics.src.data_generation",
+        "description": "platform.analytics.src.data_generation",
+        "isExtraImport": true,
+        "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
         "label": "generate_sample",
         "kind": 2,
         "importPath": "platform.analytics.src.data_generation",
@@ -158,6 +175,33 @@
         "description": "platform.analytics.src.data_generation",
         "peekOfCode": "file_path = \"../data/sudan_patient_dataset.csv\"\ndf.to_csv(file_path, index=False)\nfile_path\n# ...existing code...",
         "detail": "platform.analytics.src.data_generation",
+        "documentation": {}
+    },
+    {
+        "label": "test_generate_sample_keys",
+        "kind": 2,
+        "importPath": "platform.analytics.tests.test_analytics",
+        "description": "platform.analytics.tests.test_analytics",
+        "peekOfCode": "def test_generate_sample_keys():\n    sample = generate_sample()\n    expected_keys = {\n        \"ID\", \"full_name\", \"lat\", \"long\", \"date_of_birth\", \"age\", \"sex\",\n        \"occupation\", \"marital_status\", \"address\", \"contact_information\",\n        \"presenting_complaint\", \"complaint_duration\", \"sugar level\", \"fever\",\n        \"weight\", \"hight\", \"temperture\", \"heart rate\", \"final_diagnosis\",\n        \"malaria_type\", \"visit_date\"\n    }\n    assert set(sample.keys()) == expected_keys",
+        "detail": "platform.analytics.tests.test_analytics",
+        "documentation": {}
+    },
+    {
+        "label": "test_malaria_type_logic",
+        "kind": 2,
+        "importPath": "platform.analytics.tests.test_analytics",
+        "description": "platform.analytics.tests.test_analytics",
+        "peekOfCode": "def test_malaria_type_logic():\n    for diag, expected in [(\"Malaria(CL)\", \"CL\"), (\"Malaria(VL)\", \"VL\"), (\"Cholera\", None)]:\n        # Patch the random.choice to return the diagnosis we want to test\n        sample = generate_sample()\n        sample[\"final_diagnosis\"] = diag\n        if diag == \"Malaria(CL)\":\n            assert sample[\"malaria_type\"] == \"CL\"\n        elif diag == \"Malaria(VL)\":\n            assert sample[\"malaria_type\"] == \"VL\"\n        else:",
+        "detail": "platform.analytics.tests.test_analytics",
+        "documentation": {}
+    },
+    {
+        "label": "test_visit_date_range",
+        "kind": 2,
+        "importPath": "platform.analytics.tests.test_analytics",
+        "description": "platform.analytics.tests.test_analytics",
+        "peekOfCode": "def test_visit_date_range():\n    sample = generate_sample()\n    visit_date = pd.to_datetime(sample[\"visit_date\"])\n    assert pd.Timestamp(\"1994-01-01\") <= visit_date <= pd.Timestamp(\"2025-12-31\")",
+        "detail": "platform.analytics.tests.test_analytics",
         "documentation": {}
     }
 ]
