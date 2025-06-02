@@ -28,31 +28,66 @@ A *lightweight*, *offline-first health data collection and synchronization platf
 
 ### 📦 Folder Structure
 
-``` bash
-/cphorm
-
+```bash
+/Cphorm
 ├── form/
-│   ├── back-end
-│   └── front-end
-├── Platform
-│   ├── analytics
-│   └── dashboard
-        └──components.    
-├── utils/           
-├── docs/              
+│   ├── back-end/
+│   │   ├── app/
+│   │   │   ├── __init__.py
+│   │   │   ├── models.py
+│   │   │   ├── routes.py
+│   │   │   └── utils.py
+│   │   ├── tests/
+│   │   │   └── test_api.py
+│   │   └── requirements.txt
+│   └── front-end/
+│       ├── components/
+│       │   ├── FormBuilder.jsx
+│       │   ├── Dashboard.jsx
+│       │   └── Navbar.jsx
+│       ├── pages/
+│       │   ├── index.jsx
+│       │   └── dashboard.jsx
+│       ├── public/
+│       │   └── favicon.ico
+│       ├── styles/
+│       │   └── globals.css
+│       ├── utils/
+│       │   └── api.js
+│       └── package.json
+├── platform/
+│   ├── analytics/
+│   │   ├── src/
+│   │   │   └── data_generation.py
+│   │   ├── tests/
+│   │   │   └── test_analytics.py
+│   │   ├── notebooks/
+│   │   │   └── main.ipynb
+│   │   └── __init__.py
+│   └── dashboard/
+│       ├── components/
+│       │   └── Chart.js
+│       └── app.py
+├── utils/
+│   └── helpers.py
+├── docs/
+│   └── architecture.md
 └── README.md
 ```
 
 
 ### Prerequisites
 
-- Node.js
-
-- Python 3.10+
-
-- Docker (optional for deployment)
+- Python 3.10+  
+  (Required for analytics, data generation, and backend scripts)
+- Node.js (Recommended v18+ for frontend)
+- pip (Python package manager)
+- npm or yarn (Node.js package manager)
+- MongoDB (for backend database)
+- [Optional] Docker (for containerized deployment)
 
 ### Setup
+
 ```bash
 git clone https://github.com/STACK-42/Cphorm.git
 cd cphorm
