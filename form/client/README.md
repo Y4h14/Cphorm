@@ -95,6 +95,25 @@ Database logic is separated in `js/db.js` for maintainability.
 
 ---
 
-## License
+## Example FIELD_DEFS
 
-MIT
+```js
+const FIELD_DEFS = {
+  full_name: { label: "Full Name", placeholder: "Enter full name" },
+  age: { label: "Age", placeholder: "Enter age", type: "number" },
+  diagnosis: {
+    label: "Diagnosis",
+    type: "select",
+    options: ['Cholera', 'Malaria(CL)', 'Malaria(VL)', 'Dengue Fever', 'Measles', 'Leishmaniasis']
+  },
+  city: {
+    label: "City",
+    type: "select",
+    options: [
+      "Khartoum", "Port Sudan", "Kassala", "Nyala", "El Obeid",
+      "Dongola", "Kadugli", "Wad Madani", "Geneina", "Sennar"
+    ]
+  },
+  // ...more fields...
+};
+```
