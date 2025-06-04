@@ -35,6 +35,11 @@ const selectorsContainer = document.getElementById('field-selectors');
 const form = document.getElementById('dynamic-form');
 const dynamicFields = document.getElementById('dynamic-fields');
 
+if (!selectorsContainer || !form || !dynamicFields) {
+  console.error('Required DOM elements not found.');
+  return;
+}
+
 selectorsContainer.addEventListener('change', () => {
   const selectedKeys = Array.from(selectorsContainer.querySelectorAll('input[type="checkbox"]:checked'))
     .map(cb => cb.dataset.key);
@@ -62,19 +67,4 @@ selectorsContainer.addEventListener('change', () => {
     wrapper.innerHTML = `<p class="text-[#0d141c] text-base font-medium leading-normal pb-2">${field.label}</p>${inputHTML}`;
     dynamicFields.appendChild(wrapper);
   });
-});
-
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
-  const notification = document.getElementById('notification');
-  notification.textContent = "Form submitted successfully!";
-  notification.classList.remove('hidden');
-  // Hide after 2 seconds
-  setTimeout(() => {
-    notification.classList.add('hidden');
-    form.reset();
-    // Optionally, also uncheck all checkboxes and clear form preview
-    selectorsContainer.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
-    dynamicFields.innerHTML = '';
-  }, 2000);
 });
