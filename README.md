@@ -1,10 +1,19 @@
 # Cphorm
+[![Python](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/)
+[![Build Status](https://github.com/STACK-42/Cphorm/actions/workflows/python-app.yml/badge.svg)](https://github.com/STACK-42/Cphorm/actions)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
 ![Image](utiles/Panel.png)
+![Panel Screenshot](utiles/Panel.png)
+
+
+---
 
 #### 🧬 Cphorm
 
 A *lightweight*, *offline-first health data collection and synchronization platform* designed for field workers, researchers, and organizations working in connectivity-challenged regions.
+
+---
 
 #### 🚀 Key Features
 
@@ -31,6 +40,7 @@ A *lightweight*, *offline-first health data collection and synchronization platf
 ``` bash
 /cphorm
 
+/Cphorm
 ├── form/
 │   ├── back-end
 │   └── front-end
@@ -40,6 +50,47 @@ A *lightweight*, *offline-first health data collection and synchronization platf
         └──components.    
 ├── utils/           
 ├── docs/              
+│   ├── back-end/
+│   │   ├── app/
+│   │   │   ├── __init__.py
+│   │   │   ├── models.py
+│   │   │   ├── routes.py
+│   │   │   └── utils.py
+│   │   ├── tests/
+│   │   │   └── test_api.py
+│   │   └── requirements.txt
+│   └── front-end/
+│       ├── components/
+│       │   ├── FormBuilder.jsx
+│       │   ├── Dashboard.jsx
+│       │   └── Navbar.jsx
+│       ├── pages/
+│       │   ├── index.jsx
+│       │   └── dashboard.jsx
+│       ├── public/
+│       │   └── favicon.ico
+│       ├── styles/
+│       │   └── globals.css
+│       ├── utils/
+│       │   └── api.js
+│       └── package.json
+├── platform/
+│   ├── analytics/
+│   │   ├── src/
+│   │   │   └── data_generation.py
+│   │   ├── tests/
+│   │   │   └── test_analytics.py
+│   │   ├── notebooks/
+│   │   │   └── main.ipynb
+│   │   └── __init__.py
+│   └── dashboard/
+│       ├── components/
+│       │   └── Chart.js
+│       └── app.py
+├── utils/
+│   └── helpers.py
+├── docs/
+│   └── architecture.md
 └── README.md
 ```
 
