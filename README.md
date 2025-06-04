@@ -3,7 +3,7 @@
 [![Build Status](https://github.com/STACK-42/Cphorm/actions/workflows/python-app.yml/badge.svg)](https://github.com/STACK-42/Cphorm/actions)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
-![Image](utiles/Panel.png)
+
 ![Panel Screenshot](utiles/Panel.png)
 
 
