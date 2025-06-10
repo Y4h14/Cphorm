@@ -1,10 +1,19 @@
 # Cphorm
+[![Python](https://img.shields.io/badge/python-3.10-blue.svg)](https://www.python.org/)
+[![Build Status](https://github.com/STACK-42/Cphorm/actions/workflows/python-app.yml/badge.svg)](https://github.com/STACK-42/Cphorm/actions)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
 
-![Image](utiles/Panel.png)
+
+![Panel Screenshot](utiles/Panel.png)
+
+
+---
 
 #### 🧬 Cphorm
 
 A *lightweight*, *offline-first health data collection and synchronization platform* designed for field workers, researchers, and organizations working in connectivity-challenged regions.
+
+---
 
 #### 🚀 Key Features
 
