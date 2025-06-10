@@ -138,5 +138,51 @@
     </div>
     <script src="js/db.js"></script>
     <script src="js/form.js"></script>
+    <script>
+      // List of available fields and their labels
+      const fieldDefinitions = {
+        full_name: { label: "Full Name", type: "text" },
+        age: { label: "Age", type: "number" },
+        presenting_complaint: { label: "Presenting Complaint", type: "text" },
+        medical_history: { label: "Medical History", type: "text" },
+        medications: { label: "Medications", type: "text" },
+        city: { label: "City", type: "text" },
+        diagnosis: { label: "Diagnosis", type: "text" },
+        sex: { label: "Sex", type: "text" },
+        date_of_birth: { label: "Date of Birth", type: "date" }
+      };
+
+      // Get all field checkboxes
+      const fieldSelectors = document.querySelectorAll('#field-selectors input[type="checkbox"]');
+      const dynamicFields = document.getElementById('dynamic-fields');
+
+      // Update the form preview based on selected fields
+      function updateFormPreview() {
+        dynamicFields.innerHTML = '';
+        fieldSelectors.forEach(checkbox => {
+          if (checkbox.checked) {
+            const key = checkbox.getAttribute('data-key');
+            const def = fieldDefinitions[key];
+            if (def) {
+              const fieldDiv = document.createElement('div');
+              fieldDiv.className = "mb-4";
+              fieldDiv.innerHTML = `
+                <label class="block text-sm font-medium text-gray-700 mb-1">${def.label}</label>
+                <input type="${def.type}" name="${key}" class="border border-gray-300 rounded-lg px-3 py-2 w-full" />
+              `;
+              dynamicFields.appendChild(fieldDiv);
+            }
+          }
+        });
+      }
+
+      // Listen for changes on all checkboxes
+      fieldSelectors.forEach(checkbox => {
+        checkbox.addEventListener('change', updateFormPreview);
+      });
+
+      // Initial render (in case some are pre-checked)
+      updateFormPreview();
+    </script>
   </body>
 </html>
