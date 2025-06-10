@@ -10,7 +10,7 @@ Users can select which fields to include, add custom fields, and submit data eve
 - **Dynamic Form:** Select which fields to include in the form.
 - **Custom Fields:** Add your own fields (text, number, date, select/dropdown).
 - **Offline Support:** Submissions are saved locally using IndexedDB.
-- **Auto Sync:**  AWhen online, all unsynced submissions are sent to the backendPI.
+- **Auto Sync:** When online, all unsynced submissions are sent to the backend API.
 - **User Feedback:** Notifications for successful local save and sync.
 
 ---
@@ -39,10 +39,30 @@ Users can select which fields to include, add custom fields, and submit data eve
 
 ---
 
+## Database Logic
+
+Database logic is separated in `js/db.js` for maintainability.
+
+### `writeToDatabase(data)`
+- **Description:** Writes an object to IndexedDB.
+- **Usage:**  
+  ```js
+  await writeToDatabase({ field1: "value", field2: 123 });
+  ```
+
+### `readFromDatabase()`
+- **Description:** Reads all objects from IndexedDB.
+- **Usage:**  
+  ```js
+  const allRecords = await readFromDatabase();
+  ```
+
+---
+
 ## API Integration
 
 - **Endpoint:**  
-  @karam must update the `API_URL` in `form.js` to the backend endpoint (e.g., `https://your-api-url.com/submit`).
+  Update the `API_URL` in your sync logic to your backend endpoint (e.g., `https://your-api-url.com/submit`).
 
 - **Payload:**  
   Each POST request contains a JSON object with all form fields and a `timestamp`.
