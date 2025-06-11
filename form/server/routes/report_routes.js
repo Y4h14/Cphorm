@@ -5,7 +5,7 @@ import {
   getReport,
   deleteReport,
   updateReport,
-} from "../controllers/reportController.js";
+} from "../controllers/report_controllers.js";
 
 // const express = require("express");
 const reportRouter = express.Router();
