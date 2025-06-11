@@ -1,15 +1,15 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const ReportSchema = new mongoose.Schema({
+const reportSchema = new mongoose.Schema({
   full_name: String,
-  date_of_birth: Date, 
-  lat: Number ,
-  long:Number,
+  date_of_birth: Date,
+  lat: Number,
+  long: Number,
   age: String,
   gender: String,
-  occupation: String ,
-  address:String,
+  occupation: String,
+  address: String,
   contact_information: String,
 });
 
-module.exports = mongoose.model('Report', ReportSchema);
+export default mongoose.model("Report", ReportSchema);

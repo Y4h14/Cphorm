@@ -1,13 +1,19 @@
-const express = require('express');
+import express from "express";
+import {
+  createReport,
+  getAllReport,
+  getReport,
+  deleteReport,
+  updateReport,
+} from "../controllers/reportController.js";
+
+// const express = require("express");
 const reportRouter = express.Router();
-const reportController = require('../controllers/report_controllers')
 
-reportRouter.post('/', reportController.createReport);
-reportRouter.get('/', reportController.getAllReport);
-reportRouter.get('/:id', reportController.getReport);
-reportRouter.delete('/:id', reportController.deleteReport);
-reportRouter.put('/:id', reportController.updateReport);
+reportRouter.post("/", createReport);
+reportRouter.get("/", getAllReport);
+reportRouter.get("/:id", getReport);
+reportRouter.delete("/:id", deleteReport);
+reportRouter.put("/:id", updateReport);
 
-
-
-module.exports = reportRouter;
+export default reportRouter;

@@ -1,12 +1,13 @@
-require('dotenv').config();
-const express = require("express");
-const mongoose = require("mongoose");
-const reportRoutes = require("./routes/report_routes")
+import dotenv from "dotenv";
+import express from "express";
+import mongoose from "mongoose";
+import reportRoutes from "./routes/report_routes.js";
+
+dotenv.config();
 
 // creating an express APP
 const app = express();
-app.use(express.json())
-
+app.use(express.json());
 
 // Connecting to MONGODB
 mongoose
@@ -14,9 +15,7 @@ mongoose
   .then(() => console.log("Mongodb Connected"))
   .catch((err) => console.log(err.message));
 
-
-app.use('/api/reports/', reportRoutes)
-
+app.use("/api/reports/", reportRoutes);
 
 // running the server
 const PORT = process.env.PORT || 3000;
