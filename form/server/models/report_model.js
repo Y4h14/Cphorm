@@ -12,4 +12,6 @@ const reportSchema = new mongoose.Schema({
   contact_information: String,
 });
 
-export default mongoose.model("Report", reportSchema);
+const Report = mongoose.model("Report", reportSchema);
+
+export { Report };

@@ -14,6 +14,10 @@ mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("Mongodb Connected"))
   .catch((err) => console.log(err.message));
+  app.get("/z", (req, res) => {
+    res.status(200).json({ status: "ok" });
+  });
+
 
 app.use("/api/reports/", reportRoutes);
 
