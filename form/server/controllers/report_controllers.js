@@ -1,73 +1,44 @@
 import { Report } from "../models/report_model";
 
 // create a new report
-export const createReport = async (req, res) => {
-  try {
-    const report = new Report(req.body);
-    console.log(req.body);
-
-    await report.save();
-    res.status(201).json({ success: true, data: report });
-  } catch (err) {
-    res.status(400).json({ success: false, error: err.message });
-  }
+export const createReport = async (reportData) => {
+  const report = new Report(reportData);
+  await report.save();
+  return report;
 };
 
 // Get all Reports
-export const getAllReport = async (req, res) => {
-  try {
-    const reports = await Report.find();
-    res.json(reports);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
+export const getAllReport = async () => {
+  const reports = await Report.find();
+  return reports;
 };
 
-// Get a  Report by ID
-export const getReport = async (req, res) => {
-  try {
-    const report = await Report.findById(req.params.id);
-    if (!report) {
-      return res
-        .status(404)
-        .json({ success: false, error: "Report not found" });
-    }
-    res.status(201).json({ success: true, data: report });
-  } catch (err) {
-    res.status(500).json({ success: false, error: err.message });
+// Get a Report by ID
+export const getReport = async (id) => {
+  const report = await Report.findById(id);
+  if (!report) {
+    throw new Error("Report not found");
   }
+  return report;
 };
 
 // Update a report by ID
-export const updateReport = async (req, res) => {
-  try {
-    const report = await Report.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
-    if (!report) {
-      return res
-        .status(404)
-        .json({ success: false, error: "Report not found" });
-    }
-    // res.status(201).json({success: true, data: report})
-    res.status(201).json({ success: true, id: report._id });
-  } catch (err) {
-    res.status(400).json({ success: false, error: err.message });
+export const updateReport = async (id, updateData) => {
+  const report = await Report.findByIdAndUpdate(id, updateData, {
+    new: true,
+    runValidators: true,
+  });
+  if (!report) {
+    throw new Error("Report not found");
   }
+  return report;
 };
 
 // delete report
-export const deleteReport = async (req, res) => {
-  const report = await Report.findByIdAndDelete(req.params.id);
-  try {
-    if (!report) {
-      return res
-        .status(404)
-        .json({ success: false, error: "Report not found" });
-    }
-    res.status(201).json({ success: true, data: report });
-  } catch (err) {
-    res.status(400).json({ success: false, error: err.message });
+export const deleteReport = async (id) => {
+  const report = await Report.findByIdAndDelete(id);
+  if (!report) {
+    throw new Error("Report not found");
   }
+  return report;
 };
