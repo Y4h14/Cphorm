@@ -1,16 +1,18 @@
-tables 
+tables
 
 - patient:
-    - full name  
-    - Date of birth
-    - gender 
-    - adress
-    - occupation
-    - contact_information
-    - location
 
+  - full name
+  - Date of birth
+  - gender
+  - adress
+  - occupation
+  - contact_information
+  - location
 
+- status
+  - current_status (jsonb)
+  - history (jsonb[])
 
- - status
-    - current_status (jsonb)
-    - history (jsonb[])
+deployment and hono
+doc table (signin/up)
