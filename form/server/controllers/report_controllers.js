@@ -1,44 +1,57 @@
-import { Report } from "../models/report_model";
+import { supabase } from "../models/supabase_client.js";
 
 // create a new report
 export const createReport = async (reportData) => {
-  const report = new Report(reportData);
-  await report.save();
-  return report;
+  const { data, error } = await supabase
+    .from("reports")
+    .insert([reportData])
+    .select()
+    .single();
+  if (error) throw new Error(error.message);
+  return data;
 };
 
 // Get all Reports
 export const getAllReport = async () => {
-  const reports = await Report.find();
-  return reports;
+  const { data, error } = await supabase.from("reports").select("*");
+  if (error) throw new Error(error.message);
+  return data;
 };
 
 // Get a Report by ID
 export const getReport = async (id) => {
-  const report = await Report.findById(id);
-  if (!report) {
-    throw new Error("Report not found");
-  }
-  return report;
+  const { data, error } = await supabase
+    .from("reports")
+    .select("*")
+    .eq("id", id)
+    .single();
+  if (error) throw new Error(error.message);
+  if (!data) throw new Error("Report not found");
+  return data;
 };
 
 // Update a report by ID
 export const updateReport = async (id, updateData) => {
-  const report = await Report.findByIdAndUpdate(id, updateData, {
-    new: true,
-    runValidators: true,
-  });
-  if (!report) {
-    throw new Error("Report not found");
-  }
-  return report;
+  const { data, error } = await supabase
+    .from("reports")
+    .update(updateData)
+    .eq("id", id)
+    .select()
+    .single();
+  if (error) throw new Error(error.message);
+  if (!data) throw new Error("Report not found");
+  return data;
 };
 
 // delete report
 export const deleteReport = async (id) => {
-  const report = await Report.findByIdAndDelete(id);
-  if (!report) {
-    throw new Error("Report not found");
-  }
-  return report;
+  const { data, error } = await supabase
+    .from("reports")
+    .delete()
+    .eq("id", id)
+    .select()
+    .single();
+  if (error) throw new Error(error.message);
+  if (!data) throw new Error("Report not found");
+  return data;
 };
